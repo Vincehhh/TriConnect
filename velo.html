@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TriConnect</title>
+    
+    <link rel="stylesheet" href="assets/css/style2.css">
+    <link rel="icon" type="image/png" href="assets/img/logo.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div id="cookie-banner">
+      <p>Nous utilisons des cookies pour améliorer votre expérience. 
+         <button id="accept-cookies">Accepter</button>
+      </p>
+    </div>
+
+    <header>
+    <div class="logo">
+      <div class="logo-img">
+        <img src="logo.png" alt="">
+       </div>
+      <div class="logo-nom">TriConnect</div>
+    </div>
+    <nav>
+      <ul>
+        <li><a href="sport.html">Accueil</a></li>
+        <li><a href="#">Discussions</a></li>
+        <li><a href="#">Suivi</a></li>
+        <li><a href="#">Profil</a></li>
+        <li><a href="connexion.html" class="btn">Connexion</a></li>
+      </ul>
+    </nav>
+    </header>
+
+    <section class="hero-section" style="background: url('assets/img/hero-bike.jpg') no-repeat center center/cover; background-color: black;">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Cyclisme</h1>
+                <p>Optimisez votre puissance, analysez votre coup de pédale et roulez avec le peloton TriConnect.</p>
+            </div>
+        </div>
+    </section>
+    
+    <main class="container">
+
+     <section class="section dashboard-section">
+    <h2> Suivi des performances</h2>
+    
+    <div class="dash-3d-container">
+        <div class="dash-scene">
+            
+            <div class="dash-card active" data-index="0">
+                <div class="card-glass">
+                    <div class="card-icon"><i class="fa-solid fa-heart-pulse"></i></div>
+                    <h3>Physiologie</h3>
+                    <div class="stats-group">
+                        <div class="stat-row">
+                            <span>Forme</span>
+                            <div class="bar-container"><div class="bar-fill" style="width: 82%;"></div></div>
+                        </div>
+                        <div class="stat-row">
+                            <span>FC Max</span>
+                            <strong>192 bpm</strong>
+                        </div>
+                        <div class="stat-row">
+                            <span>Watts/Kg</span>
+                            <strong>3.8 W/kg</strong>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="dash-card next" data-index="1">
+                <div class="card-glass">
+                    <div class="card-icon"><i class="fa-solid fa-bicycle"></i></div>
+                    <h3>Données Vélo</h3>
+                    <div class="stats-group">
+                        <div class="stat-row">
+                            <span>Cadence</span>
+                            <strong>90 rpm</strong>
+                        </div>
+                        <div class="stat-row">
+                            <span>FTP</span>
+                            <div class="bar-container"><div class="bar-fill" style="width: 70%; background: #00d2ff;"></div></div>
+                        </div>
+                        <div class="stat-row">
+                            <span>Vitesse Moy.</span>
+                            <strong>32.5 km/h</strong>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="dash-card" data-index="2">
+                <div class="card-glass">
+                    <div class="card-icon"><i class="fa-solid fa-road"></i></div>
+                    <h3>Objectifs Saison</h3>
+                    <div class="stats-group">
+                        <div class="stat-row">
+                            <span>Défi</span>
+                            <strong>Étape du Tour</strong>
+                        </div>
+                        <div class="stat-row">
+                            <span>Dénivelé</span>
+                            <strong>+3500m</strong>
+                        </div>
+                        <div class="stat-row">
+                            <span>Prépa</span>
+                            <div class="bar-container"><div class="bar-fill" style="width: 45%; background: #ff0055;"></div></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="dash-card prev" data-index="3">
+                <div class="card-glass">
+                    <div class="card-icon"><i class="fa-solid fa-bolt"></i></div>
+                    <h3>État de Forme</h3>
+                    <div class="stats-group">
+                        <div class="stat-row">
+                            <span>Jambes</span>
+                            <div class="bar-container"><div class="bar-fill" style="width: 60%; background: #ffaa00;"></div></div>
+                        </div>
+                        <div class="stat-row">
+                            <span>Charge</span>
+                            <strong>Élevée</strong>
+                        </div>
+                        <div class="stat-row">
+                            <span>Stress</span>
+                            <strong>Bas</strong>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="dash-controls">
+            <button id="prev-dash" class="control-btn"><i class="fa-solid fa-chevron-left"></i></button>
+            <div class="dash-indicators">
+                <span class="dot active"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+            </div>
+            <button id="next-dash" class="control-btn"><i class="fa-solid fa-chevron-right"></i></button>
+        </div>
+    </div>
+</section>
+
+
+<section class="section futuristic-section" id="generator">
+    <div class="glass-container">
+        <h2 class="neon-title"><i class="fa-solid fa-microchip"></i> Générateur IA</h2>
+        <p class="section-desc">Calibrez votre entraînement cycliste selon votre FTP et vos objectifs.</p>
+        
+        <form class="questionnaire-form">
+            <div class="form-grid">
+                <div class="form-group">
+                    <label for="experience">Niveau Cycliste</label>
+                    <div class="select-wrapper">
+                        <select id="experience" name="experience">
+                            <option value="">Sélectionner...</option>
+                            <option value="debutant">Rookie (Lvl 1)</option>
+                            <option value="intermediaire">Rouleur (Lvl 2)</option>
+                            <option value="avance">Grimpeur (Lvl 3)</option>
+                            <option value="expert">Pro Tour (Lvl 99)</option>
+                        </select>
+                        <i class="fa-solid fa-caret-down arrow-icon"></i>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="bike-distance">Format de Course</label>
+                    <div class="select-wrapper">
+                        <select id="bike-distance" name="bike-distance">
+                            <option value="">Sélectionner...</option>
+                            <option value="sprint">Contre-la-montre (20km)</option>
+                            <option value="olympic">Distance Olympique (40km)</option>
+                            <option value="half">Half-Iron (90km)</option>
+                            <option value="iron">Ironman (180km)</option>
+                        </select>
+                        <i class="fa-solid fa-caret-down arrow-icon"></i>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group full-width">
+                <label for="goals">Focus Séance</label>
+                <textarea id="goals" name="goals" rows="3" placeholder="Ex: Travail de force en côte, vélocité sur home-trainer, sortie longue aéro..."></textarea>
+            </div>
+
+            <div class="form-action">
+                <button type="submit" class="btn btn-neon">
+                    <span class="btn-text">Calculer l'Itinéraire</span>
+                    <span class="btn-glow"></span>
+                </button>
+            </div>
+        </form>
+    </div>
+</section>
+
+<section class="section futuristic-section" id="forum">
+    <div class="forum-header-flex">
+        <h2 class="neon-title"><i class="fa-solid fa-users-rays"></i> Flux Communautaire</h2>
+        <button class="btn btn-outline-neon">Nouveau Sujet <i class="fa-solid fa-plus"></i></button>
+    </div>
+
+    <div class="forum-grid">
+        <div class="forum-card">
+            <div class="post-meta">
+                <div class="user-info">
+                    <div class="avatar-circle">L</div>
+                    <div>
+                        <strong>Lucas_Aero</strong>
+                        <span class="badge badge-blue">Avancé</span>
+                    </div>
+                </div>
+                <small class="time-stamp">Il y a 45 min</small>
+            </div>
+            <h4 class="post-title">Réglage prolongateurs & Douleurs lombaires</h4>
+            <p class="post-excerpt">Je ressens une gêne bas du dos après 60km en position aéro. Faut-il avancer la selle ou remonter le poste de pilotage ?</p>
+            <div class="post-footer">
+                <span class="interaction"><i class="fa-regular fa-comment-dots"></i> 12 rép.</span>
+                <span class="interaction"><i class="fa-solid fa-heart"></i> 24</span>
+            </div>
+        </div>
+
+        <div class="forum-card expert-card">
+            <div class="post-meta">
+                <div class="user-info">
+                    <div class="avatar-circle expert">W</div>
+                    <div>
+                        <strong>Watts_Guru</strong>
+                        <span class="badge badge-gold">Expert</span>
+                    </div>
+                </div>
+                <small class="time-stamp">Il y a 3h</small>
+            </div>
+            <h4 class="post-title">Protocole Test FTP 20min</h4>
+            <p class="post-excerpt">Le guide complet pour calibrer vos zones de puissance sur Zwift ou route. Attention au pacing sur les 5 premières minutes.</p>
+            <div class="post-footer">
+                <span class="interaction"><i class="fa-regular fa-comment-dots"></i> 45 rép.</span>
+                <span class="interaction"><i class="fa-solid fa-heart"></i> 102</span>
+            </div>
+        </div>
+    </div>
+    
+    <div class="center-btn">
+        <a href="#" class="link-neon">Accéder au Data Center complet <i class="fa-solid fa-arrow-right"></i></a>
+    </div>
+</section>
+    </main>
+
+   <footer>
+    <hr>
+     <div class="footer-liste">
+   
+   <div class="footer-serviceClient">
+     <span> Service client </span>
+    <ul>
+      <li> <a href="# "> Centre d'assistance</a></li>
+      <li> <a href="#">Contacts</a></li>
+    </ul>
+   </div>
+
+  
+   <div class="footer-Societe">
+     <span> Société </span>
+   <ul>
+       <li> <a href="# "> A propos</a></li>
+      <li> <a href="#">Carrières</a></li>
+   </ul>
+   </div>
+   <div class="footer-Plateformes">
+     <span> Plateformes </span>
+    <ul>
+      <li> <a href="# "> Strava</a></li>
+      <li> <a href="#">Garmin</a></li>
+      <li> <a href="#">Zwift</a></li>
+       <li> <a href="#">TrainingPeaks</a></li>
+    </ul>
+   </div>
+ </div>
+  
+  <div class="footer-information">
+    <div class="footer-information-pays"> France</div>
+    <div class="footer-information-logoRéseaux">
+      <ul> 
+        <li> <a href="#"><img src="assets/img/insta.jpeg" alt=""> </a></li>
+        <li> <a href="#"><img src="assets/img/facebook.jpeg" alt=""> </a></li>
+        <li> <a href="#"><img src="assets/img/x.jpeg" alt=""></a></li>
+      </ul>
+    </div>
+  </div>
+ <hr>
+
+ <div class="footer-cookie">
+  <a href="#"> Paramètres Cookies</a>
+ </div>
+
+
+  </footer>
+<script src="assets/js/fichier.js"></script>
+<script src="assets/js/carousel.js"></script>
+</body>
+</html>
