@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TriConnect</title>
+    
+    <link rel="stylesheet" href="assets/css/style2.css">
+    <link rel="icon" type="image/png" href="assets/img/logo.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div id="cookie-banner">
+      <p>Nous utilisons des cookies pour améliorer votre expérience. 
+         <button id="accept-cookies">Accepter</button>
+      </p>
+    </div>
+
+    <header>
+    <div class="logo">
+      <div class="logo-img">
+        <img src="logo.png" alt="">
+       </div>
+      <div class="logo-nom">TriConnect</div>
+    </div>
+    <nav>
+      <ul>
+        <li><a href="sport.html">Accueil</a></li>
+        <li><a href="#">Discussions</a></li>
+        <li><a href="#">Suivi</a></li>
+        <li><a href="#">Profil</a></li>
+        <li><a href="connexion.html" class="btn">Connexion</a></li>
+      </ul>
+    </nav>
+    </header>
+
+    <section class="hero-section" style="background: url('assets/img/hero-run.jpg') no-repeat center center/cover; background-color: black;">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Course à Pied</h1>
+                <p>Maîtrisez votre foulée, développez votre VMA et franchissez la ligne d'arrivée avec TriConnect.</p>
+            </div>
+        </div>
+    </section>
+    
+    <main class="container">
+
+     <section class="section dashboard-section">
+    <h2>Suivi des performances</h2>
+    
+    <div class="dash-3d-container">
+        <div class="dash-scene">
+            
+            <div class="dash-card active" data-index="0">
+                <div class="card-glass">
+                    <div class="card-icon"><i class="fa-solid fa-heart-pulse"></i></div>
+                    <h3>Cardio & VMA</h3>
+                    <div class="stats-group">
+                        <div class="stat-row">
+                            <span>VMA</span>
+                            <div class="bar-container"><div class="bar-fill" style="width: 85%;"></div></div>
+                        </div>
+                        <div class="stat-row">
+                            <span>FC Seuil</span>
+                            <strong>172 bpm</strong>
+                        </div>
+                        <div class="stat-row">
+                            <span>VO2 Max</span>
+                            <strong>58 ml/kg</strong>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="dash-card next" data-index="1">
+                <div class="card-glass">
+                    <div class="card-icon"><i class="fa-solid fa-person-running"></i></div>
+                    <h3>Technique</h3>
+                    <div class="stats-group">
+                        <div class="stat-row">
+                            <span>Cadence</span>
+                            <strong>178 spm</strong>
+                        </div>
+                        <div class="stat-row">
+                            <span>Oscill. Vert.</span>
+                            <div class="bar-container"><div class="bar-fill" style="width: 30%; background: #00d2ff;"></div></div>
+                        </div>
+                        <div class="stat-row">
+                            <span>Temps Sol</span>
+                            <strong>210 ms</strong>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="dash-card" data-index="2">
+                <div class="card-glass">
+                    <div class="card-icon"><i class="fa-solid fa-flag-checkered"></i></div>
+                    <h3>Prochaine Course</h3>
+                    <div class="stats-group">
+                        <div class="stat-row">
+                            <span>Événement</span>
+                            <strong>Marathon de Paris</strong>
+                        </div>
+                        <div class="stat-row">
+                            <span>Objectif</span>
+                            <strong>3h30</strong>
+                        </div>
+                        <div class="stat-row">
+                            <span>Plan</span>
+                            <div class="bar-container"><div class="bar-fill" style="width: 65%; background: #ff0055;"></div></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="dash-card prev" data-index="3">
+                <div class="card-glass">
+                    <div class="card-icon"><i class="fa-solid fa-shoe-prints"></i></div>
+                    <h3>État Physique</h3>
+                    <div class="stats-group">
+                        <div class="stat-row">
+                            <span>Musculaire</span>
+                            <div class="bar-container"><div class="bar-fill" style="width: 50%; background: #ffaa00;"></div></div>
+                        </div>
+                        <div class="stat-row">
+                            <span>Chaussures</span>
+                            <strong>450 km</strong>
+                        </div>
+                        <div class="stat-row">
+                            <span>Blessure</span>
+                            <strong>Aucune</strong>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="dash-controls">
+            <button id="prev-dash" class="control-btn"><i class="fa-solid fa-chevron-left"></i></button>
+            <div class="dash-indicators">
+                <span class="dot active"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+            </div>
+            <button id="next-dash" class="control-btn"><i class="fa-solid fa-chevron-right"></i></button>
+        </div>
+    </div>
+</section>
+
+
+<section class="section futuristic-section" id="generator">
+    <div class="glass-container">
+        <h2 class="neon-title"><i class="fa-solid fa-microchip"></i> Générateur IA</h2>
+        <p class="section-desc">Générez une séance de fractionné ou de sortie longue adaptée à votre VMA.</p>
+        
+        <form class="questionnaire-form">
+            <div class="form-grid">
+                <div class="form-group">
+                    <label for="experience">Niveau Coureur</label>
+                    <div class="select-wrapper">
+                        <select id="experience" name="experience">
+                            <option value="">Sélectionner...</option>
+                            <option value="jogger">Jogger (Lvl 1)</option>
+                            <option value="runner">Runner Régulier (Lvl 2)</option>
+                            <option value="marathonien">Marathonien (Lvl 3)</option>
+                            <option value="elite">Élite / Trail (Lvl 99)</option>
+                        </select>
+                        <i class="fa-solid fa-caret-down arrow-icon"></i>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="run-distance">Distance Cible</label>
+                    <div class="select-wrapper">
+                        <select id="run-distance" name="run-distance">
+                            <option value="">Sélectionner...</option>
+                            <option value="5k">5 km (Vitesse)</option>
+                            <option value="10k">10 km (Seuil)</option>
+                            <option value="semi">Semi-Marathon</option>
+                            <option value="marathon">Marathon</option>
+                            <option value="ultra">Ultra-Trail</option>
+                        </select>
+                        <i class="fa-solid fa-caret-down arrow-icon"></i>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group full-width">
+                <label for="goals">Objectif Séance</label>
+                <textarea id="goals" name="goals" rows="3" placeholder="Ex: Améliorer ma VMA sur piste, gérer l'allure marathon, renforcement côtes..."></textarea>
+            </div>
+
+            <div class="form-action">
+                <button type="submit" class="btn btn-neon">
+                    <span class="btn-text">Générer le Plan</span>
+                    <span class="btn-glow"></span>
+                </button>
+            </div>
+        </form>
+    </div>
+</section>
+
+<section class="section futuristic-section" id="forum">
+    <div class="forum-header-flex">
+        <h2 class="neon-title"><i class="fa-solid fa-users-rays"></i> Flux Communautaire</h2>
+        <button class="btn btn-outline-neon">Nouveau Sujet <i class="fa-solid fa-plus"></i></button>
+    </div>
+
+    <div class="forum-grid">
+        <div class="forum-card">
+            <div class="post-meta">
+                <div class="user-info">
+                    <div class="avatar-circle">J</div>
+                    <div>
+                        <strong>Julie_RunParis</strong>
+                        <span class="badge badge-blue">Intermédiaire</span>
+                    </div>
+                </div>
+                <small class="time-stamp">Il y a 2h</small>
+            </div>
+            <h4 class="post-title">Chaussures Carbone vs Classiques ?</h4>
+            <p class="post-excerpt">Je prépare mon premier marathon et j'hésite à investir dans des plaques carbone. Est-ce vraiment utile pour viser 4h00 ?</p>
+            <div class="post-footer">
+                <span class="interaction"><i class="fa-regular fa-comment-dots"></i> 34 rép.</span>
+                <span class="interaction"><i class="fa-solid fa-heart"></i> 56</span>
+            </div>
+        </div>
+
+        <div class="forum-card expert-card">
+            <div class="post-meta">
+                <div class="user-info">
+                    <div class="avatar-circle expert">C</div>
+                    <div>
+                        <strong>Coach_Track</strong>
+                        <span class="badge badge-gold">Expert</span>
+                    </div>
+                </div>
+                <small class="time-stamp">Il y a 5h</small>
+            </div>
+            <h4 class="post-title">La séance clé : 10x400m</h4>
+            <p class="post-excerpt">Analyse de la séance mythique pour développer sa VMA. Temps de récupération, allure cible et gestion de l'acide lactique.</p>
+            <div class="post-footer">
+                <span class="interaction"><i class="fa-regular fa-comment-dots"></i> 89 rép.</span>
+                <span class="interaction"><i class="fa-solid fa-heart"></i> 210</span>
+            </div>
+        </div>
+    </div>
+    
+    <div class="center-btn">
+        <a href="#" class="link-neon">Accéder au Data Center complet <i class="fa-solid fa-arrow-right"></i></a>
+    </div>
+</section>
+    </main>
+
+   <footer>
+    <hr>
+     <div class="footer-liste">
+   
+   <div class="footer-serviceClient">
+     <span> Service client </span>
+    <ul>
+      <li> <a href="# "> Centre d'assistance</a></li>
+      <li> <a href="#">Contacts</a></li>
+    </ul>
+   </div>
+
+  
+   <div class="footer-Societe">
+     <span> Société </span>
+   <ul>
+       <li> <a href="# "> A propos</a></li>
+      <li> <a href="#">Carrières</a></li>
+   </ul>
+   </div>
+   <div class="footer-Plateformes">
+     <span> Plateformes </span>
+    <ul>
+      <li> <a href="# "> Strava</a></li>
+      <li> <a href="#">Garmin</a></li>
+      <li> <a href="#">Coros</a></li>
+       <li> <a href="#">TrainingPeaks</a></li>
+    </ul>
+   </div>
+ </div>
+  
+  <div class="footer-information">
+    <div class="footer-information-pays"> France</div>
+    <div class="footer-information-logoRéseaux">
+      <ul> 
+        <li> <a href="#"><img src="assets/img/insta.jpeg" alt=""> </a></li>
+        <li> <a href="#"><img src="assets/img/facebook.jpeg" alt=""> </a></li>
+        <li> <a href="#"><img src="assets/img/x.jpeg" alt=""></a></li>
+      </ul>
+    </div>
+  </div>
+ <hr>
+
+ <div class="footer-cookie">
+  <a href="#"> Paramètres Cookies</a>
+ </div>
+
+
+  </footer>
+<script src="assets/js/fichier.js"></script>
+<script src="assets/js/carousel.js"></script>
+</body>
+</html>
