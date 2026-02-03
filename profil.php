@@ -55,16 +55,13 @@ $role = htmlspecialchars($_SESSION['role']);
                     <br>Votre rôle actuel : <strong><?= $role ?></strong>
                 </p>
 
-                <div class="dashboard-grid">
-                    <div class="dash-card active">
-                        <div class="card-glass">
-                            <h3>Mes Infos</h3>
-                            <p>Email : (Masqué pour sécurité)</p>
-                            <p>Membre depuis : 2026</p>
-                        </div>
-                    </div>
-                </div>
-
+                  <div class="profile-card">
+                      <div class="profile-content">
+                          <h3>Mes Infos</h3>
+                          <p>Email : (Masqué pour sécurité)</p>
+                          <p>Membre depuis : 2026</p>
+                 </div>
+              </div>
             </div>
         </section>
     </main>
