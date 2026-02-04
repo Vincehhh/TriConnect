@@ -230,6 +230,8 @@ footer span{
 
 hr{
   height: 2px;
+  width: 100%;
+  
   background-color: white;
   margin: 0 8px 15px 8px;
 }
