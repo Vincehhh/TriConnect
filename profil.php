@@ -1,5 +1,6 @@
 <?php
 session_start();
+require_once 'assets/php/config_strava.php';
 
 if (!isset($_SESSION['user_id'])) {
     header("Location: connexion.html");
@@ -64,6 +65,26 @@ $role = htmlspecialchars($_SESSION['role']);
               </div>
             </div>
         </section>
+
+
+        <div class="strava-section" style="text-align: center; margin-top: 30px;">
+    
+    <?php
+
+    $authUrl = STRAVA_AUTH_URL . '?' . http_build_query([
+        'client_id' => STRAVA_CLIENT_ID,
+        'redirect_uri' => STRAVA_REDIRECT_URI,
+        'response_type' => 'code',
+        'approval_prompt' => 'auto',
+        'scope' => 'activity:read_all,profile:read_all'
+    ]);
+    ?>
+
+    <a href="<?= $authUrl ?>" class="btn-strava" style="background: #FC4C02; color: white; padding: 15px 30px; text-decoration: none; border-radius: 5px; font-weight: bold; font-family: sans-serif;">
+        Se connecter avec Strava
+    </a>
+
+</div>
     </main>
 
       <footer>
