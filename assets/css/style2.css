@@ -49,15 +49,10 @@ body {
 
 
 :root {
-    /* Fond sombre profond mais légèrement bleuté pour éviter le noir "plat" */
     --bg-color: #0a0a0a; 
     --text-color: #ffffff;
-    
-    /* NOUVEAU : Le Néon Blanc Puissant */
     --main-color: #ffffff; 
     --neon-glow: 0 0 10px rgba(255, 255, 255, 0.8), 0 0 20px rgba(255, 255, 255, 0.4), 0 0 30px rgba(255, 255, 255, 0.1);
-    
-    /* Une couleur secondaire discrète (gris bleuté) pour les textes moins importants */
     --text-muted: #b0b0b0;
 }
 
@@ -450,14 +445,12 @@ hr{
     transform: translateZ(-200px) translateY(0) rotateY(0deg); 
 }
 
-/* L'intérieur de la carte (Effet Verre Blanc Lumineux) */
+
 .card-glass {
     width: 100%;
     height: 100%;
-    /* Fond plus clair et plus transparent */
     background: rgba(255, 255, 255, 0.03);
     backdrop-filter: blur(15px);
-    /* Bordure blanche lumineuse */
     border: 1px solid rgba(255, 255, 255, 0.5);
     border-radius: 20px;
     padding: 30px;
@@ -465,32 +458,28 @@ hr{
     flex-direction: column;
     align-items: center;
     color: var(--text-color);
-    /* Lueur blanche externe intense */
     box-shadow: var(--neon-glow), inset 0 0 20px rgba(255, 255, 255, 0.05);
 }
 
 .dash-card.active .card-glass {
     border-color: #ffffff;
-    /* Quand la carte est active, elle brille encore plus */
     box-shadow: 0 0 25px rgba(255, 255, 255, 0.6), inset 0 0 10px rgba(255, 255, 255, 0.2);
 }
 
-/* Icone blanche qui brille */
 .card-icon {
     font-size: 3rem;
     margin-bottom: 20px;
     color: #ffffff;
     transform: translateZ(50px);
-    /* Ombre portée blanche */
     filter: drop-shadow(0 0 15px rgba(255, 255, 255, 0.9)); 
     transition: transform 0.3s;
 }
 
 .bar-fill {
     height: 100%;
-    background: #ffffff; /* Barre de progression blanche */
+    background: #ffffff; 
     border-radius: 4px;
-    box-shadow: 0 0 15px #ffffff; /* La barre brille */
+    box-shadow: 0 0 15px #ffffff; 
 }
 
 .dash-card:hover .card-icon {
@@ -726,10 +715,9 @@ hr{
     border-radius: 8px;
     font-family: 'Poppins', sans-serif;
     transition: all 0.3s ease;
-    appearance: none; /* Supprime le style par défaut du navigateur */
+    appearance: none;
 }
 
-/* Focus : Lueur néon */
 .questionnaire-form input:focus,
 .questionnaire-form select:focus,
 .questionnaire-form textarea:focus {
@@ -777,7 +765,7 @@ hr{
 }
 
 
-/* --- FORUM CARTES --- */
+
 .forum-header-flex {
     display: flex;
     justify-content: space-between;
@@ -807,7 +795,7 @@ hr{
 }
 
 .expert-card:hover {
-    border-left: 3px solid #ffd700; /* Or pour les experts */
+    border-left: 3px solid #ffd700; 
 }
 
 .post-meta {
