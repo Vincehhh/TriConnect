@@ -51,6 +51,27 @@ $role = htmlspecialchars($_SESSION['role']);
             <div class="glass-container">
                 <h1 class="neon-title">Bienvenue, <?= $username ?> !</h1>
 
+                 <?php
+
+              $authUrl = STRAVA_AUTH_URL . '?' . http_build_query([
+                  'client_id' => STRAVA_CLIENT_ID,
+                  'redirect_uri' => STRAVA_REDIRECT_URI,
+                  'response_type' => 'code',
+                  'approval_prompt' => 'auto',
+                  'scope' => 'activity:read_all,profile:read_all'
+              ]);
+              ?>
+
+
+                <?php if (!isset($_GET['strava']) || $_GET['strava'] !== 'success'): ?>
+            <a href="<?= $authUrl ?>" class="btn-strava" style="display:inline-block; background: white; width : 30% ; color: black; padding: 15px 30px; margin-bottom: 30px; text-decoration: none;text-align: center; border-radius: 5px; font-weight: bold; font-family: sans-serif;">
+            Se connecter avec <span style="color: #FC4C02;   text-shadow: 
+            0 0 1px rgba(233, 109, 8, 0.9); ">
+            <i class="fab fa-strava"></i></span> 
+            Strava
+           </a>
+        <?php endif; ?>
+
               <?php if (isset($_GET['strava']) && $_GET['strava'] === 'success'): ?>
                   <div class="alert-success">
                     <p>Strava a été lié avec succès à votre compte TriConnect !</p>
@@ -76,28 +97,10 @@ $role = htmlspecialchars($_SESSION['role']);
               </div>
             </div>
         </section>
-
-
-        <div class="strava-section" style="text-align: center; margin-top: 30px;">
+      <div class="strava-section" style="text-align: center; margin-top: 30px;">
 
     
-    <?php
 
-    $authUrl = STRAVA_AUTH_URL . '?' . http_build_query([
-        'client_id' => STRAVA_CLIENT_ID,
-        'redirect_uri' => STRAVA_REDIRECT_URI,
-        'response_type' => 'code',
-        'approval_prompt' => 'auto',
-        'scope' => 'activity:read_all,profile:read_all'
-    ]);
-    ?>
-
-
-   <?php if (!isset($_GET['strava']) || $_GET['strava'] !== 'success'): ?>
-    <a href="<?= $authUrl ?>" class="btn-strava" style="background: #FC4C02; color: white; padding: 15px 30px; text-decoration: none; border-radius: 5px; font-weight: bold; font-family: sans-serif;">
-        Se connecter avec Strava
-    </a>
-<?php endif; ?>
 
 </div>
     </main>
