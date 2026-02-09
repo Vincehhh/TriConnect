@@ -63,8 +63,6 @@ a {
 
 
 
-
-
 header{
 
     display : flex; 
@@ -97,8 +95,8 @@ nav ul{
    display : flex; 
     align-items: center;
     justify-content: space-between;
-    gap : 200px; 
-    margin-left: 50px;
+    gap : 200px; ;
+    margin-left: 110px;
     list-style: none;
     font-style: none ;
 }
@@ -113,11 +111,11 @@ nav a {
 
 }
 
+
 .btn-nav {
-    background-color: var(--garmin-black);
-    color: white ;
+    background-color: #333;
     padding: 8px 15px;
-    border-radius: 4px;
+    border-radius: 5px;
 }
 
 .btn-nav:hover {
@@ -940,4 +938,3 @@ hr{
   margin-bottom: 10px;
   margin-bottom: 30px ;
 }
-
