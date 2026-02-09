@@ -740,7 +740,6 @@ hr{
     pointer-events: none;
 }
 
-/* Bouton Néon Principal */
 .btn-neon {
     background: transparent;
     border: 2px solid var(--main-color);
@@ -880,7 +879,7 @@ hr{
     color: var(--main-color);
 }
 
-/* Boutons secondaires */
+
 .btn-outline-neon {
     background: transparent;
     border: 1px solid rgba(255, 255, 255, 0.2);
@@ -912,3 +911,33 @@ hr{
     text-align: center;
     margin-top: 20px;
 }
+
+.alert-success{ 
+  color: var(--main-color);
+  text-shadow: 
+  0 0 10px rgba(255, 255, 255, 0.9),
+  0px 3px 5px rgba(5, 208, 123, 0.5),
+  0px 3px 10px rgba(6, 172, 103, 0.5); 
+ text-decoration: none;
+ font-weight: 600;
+ transition: 0.3s;
+  width: 65%;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  margin-bottom: 30px ;
+}
+
+.alert-error{ 
+  color: rgb(221, 11, 11);
+  text-shadow: 
+  0 0 5px rgba(233, 8, 8, 0.9), 
+  0 0 10px rgba(255, 0, 0, 0.9); 
+ text-decoration: none;
+ font-weight: 600;
+ transition: 0.3s;
+  width: 65%;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  margin-bottom: 30px ;
+}
+
