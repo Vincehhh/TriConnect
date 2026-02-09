@@ -50,6 +50,17 @@ $role = htmlspecialchars($_SESSION['role']);
         <section class="section futuristic-section">
             <div class="glass-container">
                 <h1 class="neon-title">Bienvenue, <?= $username ?> !</h1>
+
+              <?php if (isset($_GET['strava']) && $_GET['strava'] === 'success'): ?>
+                  <div class="alert-success">
+                    <p>Strava a été lié avec succès à votre compte TriConnect !</p>
+                  </div>
+              <?php endif; ?>
+              <?php if (isset($_GET['strava']) && $_GET['strava'] === 'error'): ?>
+                  <div class="alert-error">
+                    <p>Une erreur est survenue lors de la liaison avec Strava. Veuillez réessayer.</p> 
+                  </div>
+              <?php endif; ?>
                 
                 <p class="section-desc">
                     Ceci est votre espace personnel sécurisé.
@@ -68,6 +79,7 @@ $role = htmlspecialchars($_SESSION['role']);
 
 
         <div class="strava-section" style="text-align: center; margin-top: 30px;">
+
     
     <?php
 
@@ -80,9 +92,12 @@ $role = htmlspecialchars($_SESSION['role']);
     ]);
     ?>
 
+
+   <?php if (!isset($_GET['strava']) || $_GET['strava'] !== 'success'): ?>
     <a href="<?= $authUrl ?>" class="btn-strava" style="background: #FC4C02; color: white; padding: 15px 30px; text-decoration: none; border-radius: 5px; font-weight: bold; font-family: sans-serif;">
         Se connecter avec Strava
     </a>
+<?php endif; ?>
 
 </div>
     </main>
@@ -137,7 +152,6 @@ $role = htmlspecialchars($_SESSION['role']);
 
   </footer>
 <script src="assets/js/fichier.js"></script>
-<script src="assets/js/carousel.js"></script>
-
+<script src="assets/js/cookie.js"></script> 
 </body>
 </html>
