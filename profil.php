@@ -1,16 +1,55 @@
 <?php
 session_start();
 require_once 'assets/php/config_strava.php';
+require_once 'assets/php/db_connect.php';
+
+$stmtStrava = $pdo->prepare("SELECT * FROM oauth_tokens WHERE user_id = ? AND provider = 'strava'");
+$stmtStrava->execute([$_SESSION['user_id']]);
+$stravaAccount = $stmtStrava->fetch();
+
+$isStravaConnected = ($stravaAccount !== false);
+
+function callStravaAPI($url, $token) {
+    $ch = curl_init();
+    curl_setopt($ch, CURLOPT_URL, $url);
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+    curl_setopt($ch, CURLOPT_HTTPHEADER, [
+        "Authorization: Bearer " . $token
+    ]);
+    $response = curl_exec($ch);
+    curl_close($ch);
+    return json_decode($response, true);
+}
+
+$stravaData = null;
+$latestActivity = null;
+
+if ($isStravaConnected) {
+    $token = $stravaAccount['access_token'];
+
+    $athleteInfo = callStravaAPI('https://www.strava.com/api/v3/athlete', $token);
+
+    $activities = callStravaAPI('https://www.strava.com/api/v3/athlete/activities?per_page=1', $token);
+    
+    if (!empty($activities)) {
+        $latestActivity = $activities[0]; 
+    }
+}
 
 if (!isset($_SESSION['user_id'])) {
     header("Location: connexion.html");
     exit();
 }
 
+
+$stmtUser = $pdo->prepare("SELECT email FROM users WHERE id = ?");
+$stmtUser->execute([$_SESSION['user_id']]);
+$userInfo = $stmtUser->fetch();
+
+$email = htmlspecialchars($userInfo['email'] ?? 'Non renseigné');
 $username = htmlspecialchars($_SESSION['username']);
 $role = htmlspecialchars($_SESSION['role']);
 ?>
-
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -63,7 +102,7 @@ $role = htmlspecialchars($_SESSION['role']);
               ?>
 
 
-                <?php if (!isset($_GET['strava']) || $_GET['strava'] !== 'success'): ?>
+                <?php if (!$isStravaConnected): ?>
             <a href="<?= $authUrl ?>" class="btn-strava" style="display:inline-block; background: white; width : 30% ; color: black; padding: 15px 30px; margin-bottom: 30px; text-decoration: none;text-align: center; border-radius: 5px; font-weight: bold; font-family: sans-serif;">
             Se connecter avec <span style="color: #FC4C02;   text-shadow: 
             0 0 1px rgba(233, 109, 8, 0.9); ">
@@ -72,12 +111,12 @@ $role = htmlspecialchars($_SESSION['role']);
            </a>
         <?php endif; ?>
 
-              <?php if (isset($_GET['strava']) && $_GET['strava'] === 'success'): ?>
+              <?php if ($isStravaConnected): ?>
                   <div class="alert-success">
                     <p>Strava a été lié avec succès à votre compte TriConnect !</p>
                   </div>
               <?php endif; ?>
-              <?php if (isset($_GET['strava']) && $_GET['strava'] === 'error'): ?>
+               <?php if (!$isStravaConnected): ?>
                   <div class="alert-error">
                     <p>Une erreur est survenue lors de la liaison avec Strava. Veuillez réessayer.</p> 
                   </div>
@@ -87,22 +126,41 @@ $role = htmlspecialchars($_SESSION['role']);
                     Ceci est votre espace personnel sécurisé.
                     <br>Votre rôle actuel : <strong><?= $role ?></strong>
                 </p>
-
-                  <div class="profile-card">
                       <div class="profile-content">
                           <h3>Mes Infos</h3>
-                          <p>Email : (Masqué pour sécurité)</p>
-                          <p>Membre depuis : 2026</p>
+                           <hr style="width : 25% ; margin: 5px 0 20px 0;">
+                          <p>Email : <?= $email ?></p>
+                          <p>Nom d'utilisateur : <?= $username ?></p>
                  </div>
+
+              <div class="profile-strava">
+                  <h3>Mes Activités Strava</h3>
+                  <hr style="width : 20% ; margin: 5px 0 20px 0;">
+                  <?php if (!$isStravaConnected): ?>
+                  <span style="display:inline-block; margin-top: 8px;"><p>Vos activités Strava apparaîtront ici une fois que vous aurez connecté votre compte.</p></span>
+                  <?php endif; ?>
+                  <?php if ($isStravaConnected): ?>
+                  <p> Vos données sportives Strava : </p></div>
+                  <?php if ($latestActivity): ?>
+                      <div class="strava-activity">
+                          <h4>Dernière activité : <?= htmlspecialchars($latestActivity['name']) ?></h4>
+                          <p>Type : <?= htmlspecialchars($latestActivity['type']) ?></p>
+                          <p>Distance : <?= round($latestActivity['distance'] / 1000, 2) ?> km</p>
+                          <p>Durée : <?= gmdate("H:i:s", $latestActivity['moving_time']) ?></p>
+                          <p>Date : <?= date("d M Y", strtotime($latestActivity['start_date'])) ?></p>
+                      </div>
+                      <div class="strava-athlète">
+                        
+                      </div>
+                  <?php endif; ?> 
+                  <?php endif; ?> 
+                  
               </div>
             </div>
         </section>
       <div class="strava-section" style="text-align: center; margin-top: 30px;">
 
-    
-
-
-</div>
+    </div>
     </main>
 
       <footer>
