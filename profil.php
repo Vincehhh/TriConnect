@@ -25,9 +25,15 @@ $stravaData = null;
 $latestActivity = null;
 
 if ($isStravaConnected) {
+
     $token = $stravaAccount['access_token'];
 
     $athleteInfo = callStravaAPI('https://www.strava.com/api/v3/athlete', $token);
+
+    $stravaID = $athleteInfo['id']; 
+
+    $stats = callStravaAPI("https://www.strava.com/api/v3/athletes/$stravaID/stats", $token);
+
 
     $activities = callStravaAPI('https://www.strava.com/api/v3/athlete/activities?per_page=1', $token);
     
@@ -132,28 +138,117 @@ $role = htmlspecialchars($_SESSION['role']);
                           <p>Email : <?= $email ?></p>
                           <p>Nom d'utilisateur : <?= $username ?></p>
                  </div>
+                 <br>
 
-              <div class="profile-strava">
-                  <h3>Mes Activités Strava</h3>
-                  <hr style="width : 20% ; margin: 5px 0 20px 0;">
-                  <?php if (!$isStravaConnected): ?>
-                  <span style="display:inline-block; margin-top: 8px;"><p>Vos activités Strava apparaîtront ici une fois que vous aurez connecté votre compte.</p></span>
-                  <?php endif; ?>
-                  <?php if ($isStravaConnected): ?>
-                  <p> Vos données sportives Strava : </p></div>
+        <h3 style="color: white ;">Mon activité Strava</h3>
+        <hr style="width: 20%; margin: 5px 0 20px 0; border: 0; border-top: 1px solid #333;">
+
+        
+         <div class="profile-strava">
+
+        <?php if (!$isStravaConnected): ?>
+            <span style="display:inline-block; margin-top: 8px;">
+                <p>Vos activités Strava apparaîtront ici une fois que vous aurez connecté votre compte.</p>
+            </span>
+        <?php endif; ?>
+
+        <?php if ($isStravaConnected): ?>
+<br>
+            <?php if (isset($stats)): ?>
+            <div class="strava-performance">
+                <h4>Statistiques de performance :</h4>
+                
+                <div class="sport-block">
+                    <h3>Course à pied</h3>
+                    <br>
+                    <div class="stats-wrapper">
+                        <div class="stat-card">
+                            <div class="stat-card-label">Total de courses</div>
+                            <div class="stat-card-value"><?= $stats['all_run_totals']['count'] ?? 0 ?></div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-card-label">Distance totale</div>
+                            <div class="stat-card-value">
+                                <?= isset($stats['all_run_totals']['distance']) ? round($stats['all_run_totals']['distance'] / 1000, 2) : 0 ?>
+                                <span class="stat-card-unit">km</span>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-card-label">Temps total</div>
+                            <div class="stat-card-value">
+                                <?= isset($stats['all_run_totals']['moving_time']) ? gmdate("H:i:s", $stats['all_run_totals']['moving_time']) : '00:00:00' ?>
+                            </div>
+                        </div>
+                    </div>
+
+                    <img src="assets/img/run.jpg" alt="ddd">
+                </div>
+
+                <div class="sport-block">
+                    <span class="title-sport"><h3>Natation</h3></span>
+                    <br>
+                    <div class="stats-wrapper">
+                        <div class="stat-card">
+                            <div class="stat-card-label">Séances natation</div>
+                            <div class="stat-card-value"><?= $stats['all_swim_totals']['count'] ?? 0 ?></div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-card-label">Distance totale</div>
+                            <div class="stat-card-value">
+                                <?= isset($stats['all_swim_totals']['distance']) ? round($stats['all_swim_totals']['distance'] / 1000, 2) : 0 ?>
+                                <span class="stat-card-unit">km</span>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-card-label">Temps total</div>
+                            <div class="stat-card-value">
+                                <?= isset($stats['all_swim_totals']['moving_time']) ? gmdate("H:i:s", $stats['all_swim_totals']['moving_time']) : '00:00:00' ?>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="sport-block">
+                    <h3>Vélo</h3>
+                    <br>
+                    <div class="stats-wrapper">
+                        <div class="stat-card">
+                            <div class="stat-card-label">Séances vélo</div>
+                            <div class="stat-card-value"><?= $stats['all_ride_totals']['count'] ?? 0 ?></div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-card-label">Distance totale</div>
+                            <div class="stat-card-value">
+                                <?= isset($stats['all_ride_totals']['distance']) ? round($stats['all_ride_totals']['distance'] / 1000, 2) : 0 ?>
+                                <span class="stat-card-unit">km</span>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-card-label">Temps total</div>
+                            <div class="stat-card-value">
+                                <?= isset($stats['all_ride_totals']['moving_time']) ? gmdate("H:i:s", $stats['all_ride_totals']['moving_time']) : '00:00:00' ?>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
                   <?php if ($latestActivity): ?>
-                      <div class="strava-activity">
-                          <h4>Dernière activité : <?= htmlspecialchars($latestActivity['name']) ?></h4>
-                          <p>Type : <?= htmlspecialchars($latestActivity['type']) ?></p>
-                          <p>Distance : <?= round($latestActivity['distance'] / 1000, 2) ?> km</p>
-                          <p>Durée : <?= gmdate("H:i:s", $latestActivity['moving_time']) ?></p>
-                          <p>Date : <?= date("d M Y", strtotime($latestActivity['start_date'])) ?></p>
-                      </div>
-                      <div class="strava-athlète">
-                        
-                      </div>
-                  <?php endif; ?> 
-                  <?php endif; ?> 
+            <div class="strava-activity">
+                <h4>Dernière activité : <?= htmlspecialchars($latestActivity['name']) ?></h4>
+                <p>Type : <?= htmlspecialchars($latestActivity['type']) ?></p>
+                <p>Distance : <?= round($latestActivity['distance'] / 1000, 2) ?> km</p>
+                <p>Durée : <?= gmdate("H:i:s", $latestActivity['moving_time']) ?></p>
+                <p>Date : <?= date("d M Y", strtotime($latestActivity['start_date'])) ?></p>
+            </div>
+            <?php endif; ?>
+
+
+            </div>
+            <?php endif; ?>
+
+        <?php endif; ?>
+</div>
                   
               </div>
             </div>
