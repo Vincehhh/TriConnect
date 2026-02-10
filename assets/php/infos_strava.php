@@ -16,4 +16,18 @@ function callStravaAPI($url, $token) {
     return json_decode($response, true);
 }
 
+$stravaData = null;
+$latestActivity = null;
+
+if ($isStravaConnected) {
+    $token = $stravaAccount['access_token'];
+
+    $athleteInfo = callStravaAPI('https://www.strava.com/api/v3/athlete', $token);
+
+    $activities = callStravaAPI('https://www.strava.com/api/v3/athlete/activities?per_page=1', $token);
+    
+    if (!empty($activities)) {
+        $latestActivity = $activities[0]; 
+    }
+}
 ?>
