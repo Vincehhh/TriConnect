@@ -956,3 +956,214 @@ color: #fff;
 
 
 }
+
+ .profile-strava > h3 {
+      font-size: 1.6rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      margin-bottom: 8px;
+      color: #fff;
+    }
+
+    .strava-activity {
+      background: #0a0a0a;
+      border: 1px solid #222;
+      padding: 30px;
+      margin-bottom: 50px;
+      position: relative;
+    }
+
+    .strava-activity::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 3px;
+      height: 100%;
+      background: #fff;
+    }
+
+    .strava-activity h4 {
+      font-size: 1.1rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      margin-bottom: 20px;
+      color: #fff;
+    }
+
+    .strava-activity p {
+      font-size: 0.95rem;
+      color: #aaa;
+      margin-bottom: 8px;
+      line-height: 1.6;
+    }
+
+    .strava-performance > h4 {
+      font-size: 1rem;
+      font-weight: 400;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      margin-bottom: 50px;
+      color: #888;
+      text-align: center;
+    }
+
+    .sport-block {
+      margin-bottom: 60px;
+      position: relative;
+    }
+
+    .sport-block:last-child {
+      margin-bottom: 0;
+    }
+
+    .strava-performance > h3 {
+      font-size: 1.3rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 4px;
+      margin-bottom: 30px;
+      color: #fff;
+      text-align: center;
+      position: relative;
+      padding-bottom: 15px;
+    }
+
+    .strava-performance > h3::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 60px;
+      height: 2px;
+      background: #fff;
+    }
+
+    .stats-wrapper {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 30px;
+      margin-bottom: 40px;
+    }
+
+    .stat-card {
+      background: #0a0a0a;
+      border: 1px solid #1a1a1a;
+      padding: 25px 20px;
+      text-align: center;
+      position: relative;
+      transition: all 0.3s ease;
+    }
+
+    .stat-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: #fff;
+      transform: scaleX(0);
+      transition: transform 0.3s ease;
+    }
+
+    .stat-card:hover {
+      background: #111;
+      border-color: #333;
+    }
+
+    .stat-card:hover::before {
+      transform: scaleX(1);
+    }
+
+    .stat-card-label {
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: #666;
+      margin-bottom: 15px;
+      font-weight: 500;
+    }
+
+    .stat-card-value {
+      font-size: 2rem;
+      font-weight: 700;
+      color: #fff;
+      letter-spacing: -1px;
+    }
+
+    .stat-card-unit {
+      font-size: 0.9rem;
+      color: #888;
+      font-weight: 400;
+      margin-left: 4px;
+    }
+
+    @media (max-width: 768px) {
+      .stats-wrapper {
+        grid-template-columns: 1fr;
+        gap: 20px;
+      }
+
+      .profile-strava {
+        padding: 20px;
+      }
+
+      .profile-strava > h3 {
+        font-size: 1.3rem;
+      }
+
+      .strava-performance > h3 {
+        font-size: 1.1rem;
+      }
+
+      .stat-card-value {
+        font-size: 1.6rem;
+      }
+    }
+
+    .stat-card {
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeInUp 0.6s ease forwards;
+    }
+
+    .stat-card:nth-child(1) {
+      animation-delay: 0.1s;
+    }
+
+    .stat-card:nth-child(2) {
+      animation-delay: 0.2s;
+    }
+
+    .stat-card:nth-child(3) {
+      animation-delay: 0.3s;
+    }
+
+    @keyframes fadeInUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+.title-sport {
+    position: absolute;
+    top: -30px;
+    left: 20px;
+    background: #0a0a0a;
+    padding: 5px 15px;
+    border-radius: 20px;
+    border: 1px solid #333;
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: #fff;
+    
+}
+
+
+
