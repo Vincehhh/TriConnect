@@ -13,6 +13,7 @@ function callStravaAPI($url, $token) {
     $ch = curl_init();
     curl_setopt($ch, CURLOPT_URL, $url);
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+    curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
     curl_setopt($ch, CURLOPT_HTTPHEADER, [
         "Authorization: Bearer " . $token
     ]);
@@ -62,7 +63,9 @@ $role = htmlspecialchars($_SESSION['role']);
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mon Profil - TriConnect</title>
-    <link rel="stylesheet" href="assets/css/style2.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/profil.css">
+    <link rel="icon" type="image/png" href="assets/img/logo.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
@@ -134,14 +137,15 @@ $role = htmlspecialchars($_SESSION['role']);
                 </p>
                       <div class="profile-content">
                           <h3>Mes Infos</h3>
-                           <hr style="width : 25% ; margin: 5px 0 20px 0;">
+                           <hr style="width : 35% ; margin: 5px 0 16px 0;">
                           <p>Email : <?= $email ?></p>
                           <p>Nom d'utilisateur : <?= $username ?></p>
                  </div>
                  <br>
+                 <br>
 
         <h3 style="color: white ;">Mon activité Strava</h3>
-        <hr style="width: 20%; margin: 5px 0 20px 0; border: 0; border-top: 1px solid #333;">
+        <hr style="width: 26%; margin: 5px 0 20px 0; border: 0; border-top: 1px solid #333;">
 
         
          <div class="profile-strava">
@@ -159,7 +163,7 @@ $role = htmlspecialchars($_SESSION['role']);
                 <h4>Statistiques de performance :</h4>
                 
                 <div class="sport-block">
-                    <h3>Course à pied</h3>
+                   <span class="title-sport"><h3>Course à pied</h3></span>
                     <br>
                     <div class="stats-wrapper">
                         <div class="stat-card">
@@ -181,7 +185,7 @@ $role = htmlspecialchars($_SESSION['role']);
                         </div>
                     </div>
 
-                    <img src="assets/img/run.jpg" alt="ddd">
+                    <img src="assets/img/run.jpg" alt="Course à pied" class="run-image">
                 </div>
 
                 <div class="sport-block">
@@ -206,10 +210,11 @@ $role = htmlspecialchars($_SESSION['role']);
                             </div>
                         </div>
                     </div>
+                    <img src="assets/img/swim.jpg" alt="Natation" class="run-image">
                 </div>
 
                 <div class="sport-block">
-                    <h3>Vélo</h3>
+                   <span class="title-sport"><h3>Vélo</h3></span>
                     <br>
                     <div class="stats-wrapper">
                         <div class="stat-card">
@@ -230,6 +235,7 @@ $role = htmlspecialchars($_SESSION['role']);
                             </div>
                         </div>
                     </div>
+                    <img src="assets/img/ride.jpg" alt="Vélo  " class="run-image">
                 </div>
 
 
