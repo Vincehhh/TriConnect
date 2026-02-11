@@ -3,16 +3,25 @@
 ![Strava](https://img.shields.io/badge/Strava-FC4C02?style=for-the-badge&logo=strava&logoColor=white)
 ![MySQL](https://img.shields.io/badge/MySQL-00000F?style=for-the-badge&logo=mysql&logoColor=white)
 ![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)
-![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)
-
-[Features](#features) • [Installation](#installation) • [Usage](#usage) • [API Integration](#api-integration) • [Contributing](#contributing)
-
-</div>
+![JavaScript](https://img.shields.io/badge/javascript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)
+![Stars](https://img.shields.io/github/stars/Vincehhh/Triconnect?style=social)
+![Forks](https://img.shields.io/github/forks/Vincehhh/Triconnect?style=social)
+![Watchers](https://img.shields.io/github/watchers/Vincehhh/Triconnect?style=social)
+![Repo Size](https://img.shields.io/github/repo-size/Vincehhh/Triconnect)
+![Language Count](https://img.shields.io/github/languages/count/Vincehhh/Triconnect)
+![Top Language](https://img.shields.io/github/languages/top/Vincehhh/Triconnect)
+[![Issues](https://img.shields.io/github/issues/Vincehhh/Triconnect)](https://github.com/Vincehhh/Triconnect/issues?q=is%3Aopen+is%3Aissue)
+![Last Commit](https://img.shields.io/github/last-commit/Vincehhh/Triconnect?color=red)
+[![Release](https://img.shields.io/github/release/Vincehhh/Triconnect.svg)](https://github.com/Vincehhh/Triconnectreleases)
+[![Sponsor](https://img.shields.io/static/v1?label=Sponsor&message=%E2%9D%A4&logo=GitHub&color=%23fe8e86)](https://github.com/sponsors/Vincehhh)
 
 
 ## 📋 Overview
 
 TriConnect is a comprehensive web platform designed to help athletes master triathlon training across all three disciplines: swimming, cycling, and running. The platform combines personalized training plans, performance tracking, community forums, and sports science education to provide an optimized training experience.
+
+<img width="1898" height="894" alt="image" src="https://github.com/user-attachments/assets/734c17c3-e271-44eb-86e1-83a581a7521e" />
+
 
 ### Key Highlights
 
