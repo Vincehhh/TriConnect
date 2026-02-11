@@ -67,6 +67,8 @@ $role = htmlspecialchars($_SESSION['role']);
     <link rel="stylesheet" href="assets/css/profil.css">
     <link rel="icon" type="image/png" href="assets/img/logo.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="assets/js/fichier.js"></script>
+    <script src="assets/js/cookie.js"></script> 
 </head>
 <body>
 
@@ -83,10 +85,17 @@ $role = htmlspecialchars($_SESSION['role']);
        </div>
       <div class="logo-nom">TriConnect</div>
     </div>
-    <nav>
+    <nav id="navbar-Discussions">
       <ul>
         <li><a href="sport.html">Accueil</a></li>
-        <li><a href="#">Discussions</a></li>
+        <li>
+            <span>Discussions</span>
+    <ul class="hide">
+        <li><a href="natation.html">Natation</a></li>
+        <li><a href="course.html">Course à pied</a></li>
+        <li><a href="velo.html">Vélo</a></li>
+    </ul>
+</li>
         <li><a href="#">Suivi</a></li>
         <li><a href="#">Profil</a></li>
         <li><a href="connexion.html" class="btn">Connexion</a></li>
@@ -112,7 +121,7 @@ $role = htmlspecialchars($_SESSION['role']);
 
 
                 <?php if (!$isStravaConnected): ?>
-            <a href="<?= $authUrl ?>" class="btn-strava" style="display:inline-block; background: white; width : 30% ; color: black; padding: 15px 30px; margin-bottom: 30px; text-decoration: none;text-align: center; border-radius: 5px; font-weight: bold; font-family: sans-serif;">
+            <a href="<?= $authUrl ?>" class="btn-strava" style="display:inline-block; background: white; width : 35% ; color: black; padding: 15px 30px; margin-bottom: 30px; text-decoration: none;text-align: center; border-radius: 5px; font-weight: bold; font-family: sans-serif;">
             Se connecter avec <span style="color: #FC4C02;   text-shadow: 
             0 0 1px rgba(233, 109, 8, 0.9); ">
             <i class="fab fa-strava"></i></span> 
@@ -313,7 +322,5 @@ $role = htmlspecialchars($_SESSION['role']);
 
 
   </footer>
-<script src="assets/js/fichier.js"></script>
-<script src="assets/js/cookie.js"></script> 
 </body>
 </html>

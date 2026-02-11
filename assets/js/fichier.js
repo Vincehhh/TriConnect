@@ -36,3 +36,20 @@ document.addEventListener('DOMContentLoaded', () => {
         banner.style.display = 'none';
     });
 });
+
+
+function showNavbarSubItem (event, item) {
+  const subItem = item.getElementsByTagName('ul');
+  if (subItem && subItem.length) {
+    subItem[0].classList.toggle('hide');
+  }
+}
+
+
+document.addEventListener("DOMContentLoaded", function (event) {
+  const navbarItems = document.querySelectorAll("#navbar-Discussions > ul > li");
+  navbarItems.forEach((item) => {
+    item.addEventListener('click', (e) => showNavbarSubItem(e, item))
+  })
+
+})
