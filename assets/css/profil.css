@@ -103,7 +103,8 @@ nav ul{
     font-style: none ;
 }
 
-nav a {
+nav a,
+nav span{
       color: white;
     list-style: none;
     font-weight: bold;
@@ -1169,4 +1170,8 @@ color: #fff;
     object-position: center; 
     border-radius: 2px; 
     display: block;     
+}
+
+.hide{
+    display: none;
 }
