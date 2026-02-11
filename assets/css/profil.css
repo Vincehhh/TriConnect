@@ -8,7 +8,7 @@
 body {
     font-family: 'Montserrat', sans-serif;
     background-color: black; 
-    color: #333;
+    color: #333 ; 
     line-height: 1.6;
     overflow-x: hidden;
     text-transform: uppercase;
@@ -71,28 +71,41 @@ header{
     align-items: center;
     justify-content: space-between ;
     gap: 10px; 
-    padding : 25px 350px 25px 30px;
+    padding : 25px 350px 5px 0px;
     background-color: black ;
     color: white;
     text-decoration: none;
 
 }
 
-.logo{
-    background-color: white;
-    font-weight: bold;
-    border-radius: 25px;
-    padding : 12px;
-    color: black;
+
+
+.logo {
     display: flex;
     align-items: center;
+    gap: 12px; 
+    text-decoration: none; 
 }
 
-.logo-img img{
-  max-width: 40px;
 
 
+
+
+.logo-nom {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 900;          
+    font-size: 1.8rem;         
+    text-transform: uppercase; 
+    letter-spacing: -2px;      
+    color: #ffffff;            
+    
+    text-shadow: 3px 3px 0px rgba(0,0,0,0.2); 
+
+    white-space: nowrap;
 }
+
+
+
 nav ul{
    display : flex; 
     align-items: center;
@@ -107,7 +120,7 @@ nav a,
 nav span{
       color: white;
     list-style: none;
-    font-weight: bold;
+    font-weight: bolder; 
     text-decoration: none;
 
 
@@ -1254,3 +1267,13 @@ color: #fff;
     #navbar-Discussions ul li ul li a:hover::before {
       transform: scaleY(1);
     }
+
+    #Stats-title{
+        font-size: 22px;
+       }
+
+#hr-nav{
+    margin-left: 90px;
+    margin-top: 7px;
+    width: 95%
+}

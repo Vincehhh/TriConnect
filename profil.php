@@ -79,15 +79,8 @@ $role = htmlspecialchars($_SESSION['role']);
     </div>
 
     <header>
-    <div class="logo">
-      <div class="logo-img">
-        <img src="logo.png" alt="">
-       </div>
-      <div class="logo-nom">TriConnect</div>
-    </div>
     <nav id="navbar-Discussions">
       <ul>
-        <li><a href="sport.html">Accueil</a></li>
         <li>
             <span>Discussions</span>
     <ul class="hide">
@@ -97,9 +90,15 @@ $role = htmlspecialchars($_SESSION['role']);
     </ul>
 </li>
         <li><a href="#">Suivi</a></li>
+          <div class="logo">
+      <div class="logo-img">
+        <img src="logo.png" alt="">
+       </div>
+      <div class="logo-nom"> <a href="sport.html">TriConnect</a></div>
+    </div>
         <li><a href="#">Profil</a></li>
-        <li><a href="connexion.html" class="btn">Connexion</a></li>
-      </ul>
+        <li><a href="connexion.html">Connexion</a></li>
+      </ul>     
     </nav>
     </header>
 
@@ -169,7 +168,7 @@ $role = htmlspecialchars($_SESSION['role']);
 <br>
             <?php if (isset($stats)): ?>
             <div class="strava-performance">
-                <h4>Statistiques de performance :</h4>
+                <h4 id="Stats-title">Statistiques de performance :</h4>
                 
                 <div class="sport-block">
                    <span class="title-sport"><h3>Course à pied</h3></span>
