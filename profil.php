@@ -92,7 +92,7 @@ $role = htmlspecialchars($_SESSION['role']);
             <span>Discussions</span>
     <ul class="hide">
         <li><a href="natation.html">Natation</a></li>
-        <li><a href="course.html">Course à pied</a></li>
+        <li><a href="running.html">Course à pied</a></li>
         <li><a href="velo.html">Vélo</a></li>
     </ul>
 </li>
