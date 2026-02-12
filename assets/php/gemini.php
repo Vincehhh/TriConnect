@@ -15,7 +15,20 @@ require_once 'profil.php';
 $pool_size = $_POST['pool_size'] ;
 $swim_distance = $_POST['swim-distance'] ;
 $experience = $_POST['experience'] ; 
+$activitiesList = callStravaAPI('https://www.strava.com/api/v3/athlete/activities?per_page=20', $token); 
 
+
+$lastSwim = null; 
+
+if (!empty($activitiesList)) {
+    foreach ($activitiesList as $activity) {
+
+        if ($activity['type'] === 'Swim') {
+            $lastSwim = $activity;
+            break; 
+        }
+    }
+}
 
 function askGeminiCoach ($stats, $latestActivity){
     $apiKey = GEMINI_API_KEY ;
