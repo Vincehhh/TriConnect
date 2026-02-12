@@ -157,24 +157,24 @@
         <h2 class="neon-title"><i class="fa-solid fa-microchip"></i> Générateur IA</h2>
         <p class="section-desc">Analysez votre physiologie et générez un programme tactique sur mesure.</p>
         
-        <form class="questionnaire-form">
+        <form class="questionnaire-form" action="gemini.php" method="POST">
             <div class="form-grid">
-                <div class="form-group">
-                    <label for="experience">Niveau d'accréditation</label>
+                 <div class="form-group">
+                    <label for="experience">Niveau en natation</label>
                     <div class="select-wrapper">
                         <select id="experience" name="experience">
                             <option value="">Sélectionner...</option>
-                            <option value="debutant">Novice (Lvl 1)</option>
-                            <option value="intermediaire">Initié (Lvl 2)</option>
-                            <option value="avance">Élite (Lvl 3)</option>
-                            <option value="expert">Légende (Lvl 99)</option>
+                            <option value="debutant">Débutant</option>
+                            <option value="intermediaire">Initié </option>
+                            <option value="avance"> Bon</option>
+                            <option value="expert"> Confirmé</option>
                         </select>
                         <i class="fa-solid fa-caret-down arrow-icon"></i>
                     </div>
                 </div>
 
                 <div class="form-group">
-                    <label for="swim-distance">Endurance Max</label>
+                    <label for="swim-distance"> Distance objectif course</label>
                     <div class="select-wrapper">
                         <select id="swim-distance" name="swim-distance">
                             <option value="">Sélectionner...</option>
@@ -186,7 +186,22 @@
                         <i class="fa-solid fa-caret-down arrow-icon"></i>
                     </div>
                 </div>
+
+                
             </div>
+
+            <div class="form-group">
+                    <label for="experience"> Taille du bassin lors des entrainements</label>
+                    <div class="select-wrapper">
+                        <select id="pool-size" name="pool_size">
+                            <option value="">Sélectionner...</option>
+                            <option value="25m">25 mètres </option>
+                            <option value="50m"> 50 mètres</option>
+                            <option value="eau-libre"> Eau libre</option>
+                        </select>
+                        <i class="fa-solid fa-caret-down arrow-icon"></i>
+                    </div>
+                </div>
 
             <div class="form-group full-width">
                 <label for="goals">Paramètres de Mission</label>

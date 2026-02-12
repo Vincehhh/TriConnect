@@ -629,6 +629,9 @@ hr{
 }
 
 
+option{
+    background-color: #000;
+}
 .form-action {
     margin-top: 2rem;
     display: flex;

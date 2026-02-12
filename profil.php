@@ -133,7 +133,7 @@ $role = htmlspecialchars($_SESSION['role']);
                     <p>Strava a été lié avec succès à votre compte TriConnect !</p>
                   </div>
               <?php endif; ?>
-               <?php if (!$isStravaConnected): ?>
+               <?php if (!$isStravaConnected || !$athleteInfo): ?>
                   <div class="alert-error">
                     <p>Une erreur est survenue lors de la liaison avec Strava. Veuillez réessayer.</p> 
                   </div>
